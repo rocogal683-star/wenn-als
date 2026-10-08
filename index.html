@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammatik Aktiv: Wenn oder Als?</title>
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-hover: #004085;
+      --success: #28a745;
+      --danger: #dc3545;
+      --background: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --border: #ced4da;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--background);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: var(--primary);
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .level-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .header-student-info {
+      background: #e9ecef;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      border-left: 5px solid var(--primary);
+    }
+
+    .header-student-info label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--primary-hover);
+    }
+
+    .header-student-info input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .exercise {
+      background: #f1f3f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      border-left: 5px solid var(--primary);
+    }
+
+    .exercise h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--primary-hover);
+    }
+
+    .question {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .question:last-child {
+      border-bottom: none;
+    }
+
+    select {
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 1rem;
+      margin: 0 4px;
+    }
+
+    .inline-select {
+      display: inline-block;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    button.btn-submit {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button.btn-save {
+      background-color: var(--success);
+    }
+
+    button.btn-submit:hover {
+      background-color: var(--primary-hover);
+    }
+
+    button.btn-save:hover {
+      background-color: #218838;
+    }
+
+    #result-section {
+      margin-top: 25px;
+      padding: 20px;
+      background: #e9ecef;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .score-display {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    #status-message {
+      margin-top: 15px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    .status-success { background-color: #d4edda; color: #155724; }
+    .status-error { background-color: #f8d7da; color: #721c24; }
+
+    .correct-val { border-color: var(--success) !important; background-color: #e6f4ea; }
+    .incorrect-val { border-color: var(--danger) !important; background-color: #fce8e6; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <span class="level-badge">Grammatik Aktiv B1</span>
+  <h1>Übungen: WENN oder ALS?</h1>
+  
+  <div class="header-student-info">
+    <label for="student-name">Name und Nachname:</label>
+    <input type="text" id="student-name" placeholder="Geben Sie Ihren Namen ein..." required>
+  </div>
+
+  <p>Ergänzen Sie in den folgenden Übungen <strong>wenn</strong> oder <strong>als</strong>.</p>
+
+  <form id="quiz-form">
+    <!-- Übung 2 -->
+    <div class="exercise">
+      <h2>Übung 2: Ergänzen Sie "wenn" oder "als"</h2>
+      
+      <div class="question">
+        1. <select id="q1" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> sie morgen Zeit hat, will sie shoppen gehen.
+      </div>
+
+      <div class="question">
+        2. <select id="q2" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> er gestern Zeit hatte, hat er die Wohnung aufgeräumt.
+      </div>
+
+      <div class="question">
+        3. <select id="q3" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> ich nächste Woche nach Madrid komme, besuche ich dich.
+      </div>
+
+      <div class="question">
+        4. <select id="q4" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> ich letzte Woche in Madrid war, habe ich ein tolles Fußballspiel gesehen.
+      </div>
+
+      <div class="question">
+        5. <select id="q5" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> er letztes Jahr in unsere Stadt kam, kannte er keinen Menschen.
+      </div>
+
+      <div class="question">
+        6. <select id="q6" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> er jetzt in der Stadt spazieren geht, trifft er immer Bekannte.
+      </div>
+
+      <div class="question">
+        7. <select id="q7" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> ich vor einer Stunde nach Hause kam, hatte Marlen schon ein Essen gekocht.
+      </div>
+
+      <div class="question">
+        8. <select id="q8" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> ich nächste Woche nach Hause komme, bin ich alleine und muss selbst kochen.
+      </div>
+    </div>
+
+    <!-- Übung 4 -->
+    <div class="exercise">
+      <h2>Übung 4: Einmaliges oder wiederkehrendes Ereignis?</h2>
+      
+      <div class="question">
+        1. <select id="q9" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> in den letzten Wochen mein Handy geklingelt hat, war ich jedes Mal ganz nervös. Aber erst am letzten Freitag war es so weit: <select id="q10" class="inline-select">
+          <option value="">--</option>
+          <option value="wenn">wenn</option>
+          <option value="als">als</option>
+          <option value="Als">Als</option>
+        </select> mein Handy nachmittags geklingelt hat, war es tatsächlich Sophie.
+      </div>
+
+      <div class="question">
+        2. <select id="q11" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> er gestern um 7:30 Uhr zur Arbeit kam, waren alle Kollegen schon da. Normalerweise, <select id="q12" class="inline-select">
+          <option value="">--</option>
+          <option value="wenn">wenn</option>
+          <option value="als">als</option>
+        </select> er um acht gekommen ist, war noch keiner da.
+      </div>
+
+      <div class="question">
+        3. <select id="q13" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> meine Schwester in die Schule kam, wollte ich auch unbedingt in die Schule gehen. Aber ich war erst vier und musste noch in den Kindergarten. Jeden Tag, <select id="q14" class="inline-select">
+          <option value="">--</option>
+          <option value="wenn">wenn</option>
+          <option value="als">als</option>
+        </select> meine Schwester morgens mit dem Schulranzen zur Schule ging, wollte ich mit ihr gehen.
+      </div>
+
+      <div class="question">
+        4. <select id="q15" class="inline-select">
+          <option value="">--</option>
+          <option value="Wenn">Wenn</option>
+          <option value="Als">Als</option>
+        </select> ich mich zum ersten Mal bei einem Arbeitgeber vorgestellt habe, hatte ich große Angst vor dem Vorstellungsgespräch. In den letzten Jahren habe ich häufiger die Stelle gewechselt und habe mich daran gewöhnt und war nur ein bisschen nervös, <select id="q16" class="inline-select">
+          <option value="">--</option>
+          <option value="wenn">wenn</option>
+          <option value="als">als</option>
+        </select> ich mich vorgestellt habe.
+      </div>
+    </div>
+
+    <!-- Übung 5 -->
+    <div class="exercise">
+      <h2>Übung 5: Polizeibesuch</h2>
+      <p>Hi Katrin,</p>
+      <p>wie geht es dir? Mir geht es jetzt wieder gut, aber in der letzten Woche ist etwas passiert, was ich dir unbedingt erzählen muss. Stell dir vor, 
+      (1) <select id="q17" class="inline-select">
+        <option value="">--</option>
+        <option value="wenn">wenn</option>
+        <option value="als">als</option>
+      </select> ich am letzten Donnerstag zur Arbeit gehen wollte, stand plötzlich die Polizei vor der Tür. Ich habe erst gedacht, dass sie zu den Nachbarn wollte. Die sind ein bisschen komisch und ich war nicht überrascht, dass sie Probleme mit der Polizei haben. Aber sie haben bei mir geklingelt.</p>
+      
+      <p>(2) <select id="q18" class="inline-select">
+        <option value="">--</option>
+        <option value="Wenn">Wenn</option>
+        <option value="Als">Als</option>
+      </select> ich die Tür öffnete, fragten sie nach Anne Meyer. Die Nachbarn sahen natürlich alle aus den Fenstern. Immer (3) <select id="q19" class="inline-select">
+        <option value="">--</option>
+        <option value="wenn">wenn</option>
+        <option value="als">als</option>
+      </select> etwas los ist, stehen sie am Fenster. Es war mir furchtbar peinlich. Du weißt ja, (4) <select id="q20" class="inline-select">
+        <option value="">--</option>
+        <option value="wenn">wenn</option>
+        <option value="als">als</option>
+      </select> ich im Mittelpunkt stehe, fühle ich mich nicht wohl.</p>
+
+      <p>Ich sagte, dass ich Anne Meyer bin und fragte, was los ist. Sie waren sehr höflich und erklärten mir, dass von meinem Internetanschluss aus illegale Downloads gemacht wurden. (5) <select id="q21" class="inline-select">
+        <option value="">--</option>
+        <option value="Wenn">Wenn</option>
+        <option value="Als">Als</option>
+      </select> ich das gehört habe, musste ich sofort an Hannes denken. Mit seinen zwölf Jahren surft er ziemlich viel im Internet. Immer (6) <select id="q22" class="inline-select">
+        <option value="">--</option>
+        <option value="wenn">wenn</option>
+        <option value="als">als</option>
+      </select> ich ihn gefragt habe, was er gemacht hat, sagte er, dass er etwas für die Schule machen musste. Aber (7) <select id="q23" class="inline-select">
+        <option value="">--</option>
+        <option value="wenn">wenn</option>
+        <option value="als">als</option>
+      </select> die Polizei und ich mit ihm gesprochen haben, hat er erzählt, dass er viel rumgesurft hatte und auch auf illegale Seiten gekommen war. Oh je, das wird teuer für mich! Wünsch mir Glück!</p>
+      <p>Liebe Grüße<br>Anne</p>
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="btn-submit" onclick="checkAnswers()">1. Antworten überprüfen</button>
+    </div>
+  </form>
+
+  <div id="result-section">
+    <h2>Ergebnis</h2>
+    <div class="score-display" id="score-display">0 / 23 Punkte</div>
+    <button type="button" class="btn-submit btn-save" onclick="sendToGoogleSheets()">2. Ergebnisse in Google Sheets speichern</button>
+    <div id="status-message"></div>
+  </div>
+</div>
+
+<script>
+  let calculatedScore = 0;
+  const maxScore = 23;
+
+  const solutions = {
+    q1: "Wenn", q2: "Als", q3: "Wenn", q4: "Als",
+    q5: "Als", q6: "Wenn", q7: "Als", q8: "Wenn",
+    q9: "Wenn", q10: "Als", q11: "Als", q12: "wenn",
+    q13: "Als", q14: "wenn", q15: "Als", q16: "wenn",
+    q17: "als", q18: "Als", q19: "wenn", q20: "wenn",
+    q21: "Als", q22: "wenn", q23: "als"
+  };
+
+  function checkAnswers() {
+    const studentName = document.getElementById('student-name').value.trim();
+    if (!studentName) {
+      alert("Bitte geben Sie zuerst Ihren Namen oben ein.");
+      document.getElementById('student-name').focus();
+      return;
+    }
+
+    calculatedScore = 0;
+
+    for (let id in solutions) {
+      const field = document.getElementById(id);
+      const val = field.value.trim();
+
+      if (val.toLowerCase() === solutions[id].toLowerCase()) {
+        calculatedScore++;
+        field.className = "inline-select correct-val";
+      } else {
+        field.className = "inline-select incorrect-val";
+      }
+    }
+
+    document.getElementById('score-display').innerText = calculatedScore + " / " + maxScore + " Punkte";
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function sendToGoogleSheets() {
+    const studentName = document.getElementById('student-name').value.trim();
+    const statusMsg = document.getElementById('status-message');
+
+    if (!studentName) {
+      alert("Bitte geben Sie Ihren Namen ein.");
+      document.getElementById('student-name').focus();
+      return;
+    }
+
+    statusMsg.className = "";
+    statusMsg.innerText = "Ergebnisse werden gesendet...";
+
+    const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbx6vBfIlyoa38NQH7p_Yxw4WJv7dLIxY4OmU7FudxVd__kZJOl6GCir5CzCmf9mSCGp/exec";
+
+    const currentDate = new Date().toLocaleString("de-DE");
+
+    const payload = {
+      date: currentDate,
+      name: studentName,
+      score: calculatedScore + " / " + maxScore
+    };
+
+    fetch(googleAppScriptUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      statusMsg.className = "status-success";
+      statusMsg.innerText = "Vielen Dank! Ihre Ergebnisse wurden erfolgreich in Google Sheets gespeichert.";
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      statusMsg.className = "status-error";
+      statusMsg.innerText = "Fehler beim Senden der Daten. Bitte versuchen Sie es erneut.";
+    });
+  }
+</script>
+
+</body>
+</html>
